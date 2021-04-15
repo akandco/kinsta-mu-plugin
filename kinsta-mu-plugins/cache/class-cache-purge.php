@@ -84,7 +84,11 @@ class Cache_Purge {
 
 		add_action( 'transition_post_status', array( $this, 'post_published' ), 10, 3 );
 		add_action( 'pre_post_update', array( $this, 'post_unpublished' ), 10, 2 );
-		add_action( 'post_updated', array( $this, 'post_updated' ), 10, 3 );
+
+		$post_updated_hook = has_action('wp_after_insert_post') ? 'wp_after_insert_post' : 'post_updated';
+		add_action( $post_updated_hook, array( $this, 'post_updated' ), 10, 3 );
+
+
 		add_action( 'wp_trash_post', array( $this, 'post_trashed' ), 10 );
 
 		add_action( 'wp_insert_comment', array( $this, 'comment_insert_actions' ), 10, 2 );
