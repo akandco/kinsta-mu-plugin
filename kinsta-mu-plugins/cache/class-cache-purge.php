@@ -82,16 +82,14 @@ class Cache_Purge {
 		$this->purge_single_happened = false;
 		$this->purge_all_happened = false;
 
-		add_action( 'transition_post_status', array( $this, 'post_published' ), 10, 3 );
-		add_action( 'pre_post_update', array( $this, 'post_unpublished' ), 10, 2 );
+		// add_action( 'transition_post_status', array( $this, 'post_published' ), 10, 3 );
+		// add_action( 'pre_post_update', array( $this, 'post_unpublished' ), 10, 2 );
 		// add_action( 'wp_after_insert_post', array( $this, 'post_updated' ), 10, 3 );
-
-		add_action( 'wp_trash_post', array( $this, 'post_trashed' ), 10 );
-
-		add_action( 'wp_insert_comment', array( $this, 'comment_insert_actions' ), 10, 2 );
-		add_action( 'edit_comment', array( $this, 'comment_edit_actions' ), 10, 2 );
-		add_action( 'transition_comment_status', array( $this, 'comment_transition_actions' ), 10, 3 );
-		add_action( 'wp_update_nav_menu', array( $this, 'purge_complete_caches' ) );
+		// add_action( 'wp_trash_post', array( $this, 'post_trashed' ), 10 );
+		// add_action( 'wp_insert_comment', array( $this, 'comment_insert_actions' ), 10, 2 );
+		// add_action( 'edit_comment', array( $this, 'comment_edit_actions' ), 10, 2 );
+		// add_action( 'transition_comment_status', array( $this, 'comment_transition_actions' ), 10, 3 );
+		// add_action( 'wp_update_nav_menu', array( $this, 'purge_complete_caches' ) );
 	}
 
 	/**
